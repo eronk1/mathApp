@@ -1,0 +1,74 @@
+<style>
+html{
+    width: 100%;
+    height: 100%;  
+}
+body{
+    background-color: #8b2ffa;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+section{
+    width: 100%;
+    height: 100%;
+}
+.form {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+#username,#password,#confirmPassword{ 
+    display: block;
+    color: #d2f6ff;
+    font-size: 3vmax;
+    font-family: monospace;
+}
+#usernameInput,#passwordInput,#confirmPasswordInput{
+  font-size: 3vmax;
+  background-color: #e2c2ff;
+  color: #00b;
+  border-radius: 1vmax;
+  border-width: 0.6vmax;
+  border-color: aqua;
+  padding: 0.5vmax;
+}
+.username, .password, .confirmPassword{
+    height: fit-content;
+    width: fit-content;
+    margin-bottom: 7vmax;
+}
+#submitButton{
+  background: #aeffe8;
+  font-size: 3.5vmax;
+  padding: 1vmax;
+  border-width: 0.6vmax;
+  border-color: #00d1b3;
+  border-style: solid;
+  border-radius: 0.5vmax;
+  color: #0000c6;
+}
+@media only screen and (min-width: 1000px) {
+    #username,#password,#confirmPassword{ 
+    font-size: 30px;
+    }
+    #usernameInput,#passwordInput,#confirmPasswordInput{
+    font-size: 30px;
+    border-radius: 11px;
+    border-width: 7px;
+    padding: 6px;
+    }
+    .username, .password, .confirmPassword{
+        margin-bottom: 70px;
+    }
+    #submitButton{
+    font-size: 36px;
+    padding: 10px;
+    border-width: 7px;
+    border-radius: 10px;
+    }
+}
+</style>
