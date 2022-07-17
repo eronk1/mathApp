@@ -41,6 +41,9 @@ section{
     width: fit-content;
     margin-bottom: 10vmax;
 }
+.confirmPassword{
+    margin-bottom: 5vmax;
+}
 #submitButton{
   background: #aeffe8;
   font-size: 3.5vmax;
@@ -51,7 +54,20 @@ section{
   border-radius: 0.5vmax;
   color: #0000c6;
 }
+.errorText{
+    color: #f96c6c;
+    font-size: 2.5vmax;
+    margin: 0px;
+    -webkit-text-stroke: 0.03vmax #dd0000;
+}
 @media only screen and (min-width: 1000px) {
+    .username, .password{
+        margin-bottom: 70px;
+    }
+    .confirmPassword{
+        margin-bottom: 35px;
+    }
+    
     #username,#password,#confirmPassword{ 
     font-size: 30px;
     }
@@ -61,17 +77,25 @@ section{
     border-width: 7px;
     padding: 6px;
     }
-    .username, .password, .confirmPassword{
-        margin-bottom: 70px;
-    }
     #submitButton{
     font-size: 36px;
     padding: 10px;
     border-width: 7px;
     border-radius: 10px;
     }
+    .errorText{
+    font-size: 28px;
+    -webkit-text-stroke: 0.3px #dd0000;
+}
 }
 @media only screen and (min-height: 850px) and (min-width: 600px){
+    .confirmPassword{
+        margin-bottom: 48px;
+    }
+    .username, .password{
+        margin-bottom: 95px;
+    }
+
     #username,#password,#confirmPassword{ 
     font-size: 42px;
     }
@@ -81,14 +105,15 @@ section{
     border-width: 8px;
     padding: 8px;
     }
-    .username, .password, .confirmPassword{
-        margin-bottom: 95px;
-    }
     #submitButton{
     font-size: 42px;
     padding: 12px;
     border-width: 8px;
     border-radius: 12px;
     }
+    .errorText{
+    font-size: 28px;
+    -webkit-text-stroke: 0.3px #dd0000;
+}
 }
 </style>
