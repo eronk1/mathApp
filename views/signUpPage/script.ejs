@@ -1,15 +1,15 @@
 <script>
     $('#submitButton').on('click', function () {
-        let password = $('#passwordInput').val();
-        let confirmPassword = $('#confirmPasswordInput').val();
-        let username = $('#usernameInput').val();
-        let errorText = $('.errorText');
+        const password = $('#passwordInput').val();
+        const confirmPassword = $('#confirmPasswordInput').val();
+        const username = $('#usernameInput').val();
+        const errorText = $('.errorText');
 
         //checks the required fields
         if(password.length >= 6 && password.length <= 20 && confirmPassword.length >= 6 && confirmPassword.length <= 20 && password===confirmPassword){
             //submits if the form meets requirements
             console.log('submiting form')
-            $('form').submit();
+            $('#form').submit();
         }
         else if(username.length === 0){
             errorText.text("Please enter your username");
