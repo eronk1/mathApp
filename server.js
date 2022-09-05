@@ -1,14 +1,16 @@
-'use strict';
+'use strict'
 const { urlencoded } = require('express');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
-const mongoose = require('mongoose');
-const mongojs = require('./saveData/mongo.js');
-mongoose.connect("mongodb://localhost:27017",()=>{console.log('connected')}, e=>console.error(e))
 
 const urlencodedParser = bodyParser.urlencoded({extended: true});
+const mongoose = require('mongoose');
+const water = require('./saveData/mongo');
+mongoose.Promise = global.Promise;
+
+mongoose.connect('mongodb://localhost:27017/water',()=>(console.log('connected')));
 
 app.use(express.json());
 
@@ -30,24 +32,27 @@ app.get('/hi',(req,res) =>{
 })
 
 app.post('/signUp',urlencodedParser, async (req,res) =>{
-    try{
-        const username = req.body.Username;
-        const password = req.body.Password;
-        const confirmPassword = req.body.confirmPassword;
-        //const salt = await bcrypt.genSalt();
-        const hashedPassword = await bcrypt.hash(password,10);
+const username = req.body.Username;
+const password = req.body.Password;
+const confirmPassword = req.body.confirmPassword;
+const salt = await bcrypt.genSalt();
+const hashedPassword = await bcrypt.hash(password,salt);
 
-        const user = {Username: username,Password:hashedPassword};
-        const userSave = await mongojs.create({Username: username,Password:hashedPassword});
-        console.log(username,password,confirmPassword);
-        console.log(user);
-        await user.save();
-    
+const user = {Username: username,Password:hashedPassword};
+async function runCreate(){
+    const wat = await water.create({Username: username, Password: hashedPassword});
+    const stuff = await water.find().limit(2);
+
+}
+
+    try{
         //checks the required fields
         if(username.length >= 6 && username.length <= 16 && password.length >= 6 && password.length <= 20 && confirmPassword.length >= 6 && confirmPassword.length <= 20 && password===confirmPassword){
             //submits if the form meets requirements
             console.log('successfully submitted');
-            res.redirect('/hi')
+            res.redirect('/hi') 
+            runCreate();
+            console.log(stuff);
         }
         else {
             console.log('error has occurred')

@@ -4,4 +4,4 @@ const userSchema = new mongoose.Schema({
     Password:'String'
 })
 
-module.exports = mongoose.model("User",userSchema)
+module.exports = mongoose.model("water",userSchema);
